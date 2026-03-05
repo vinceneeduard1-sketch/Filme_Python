@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <title>Studio App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+
+        {% block content %}
+            <div style="text-align: center; margin-top: 50px;">
+                <p style="color: #86868b; margin-bottom: 100px;"> </p>
+
+                <h1 style="font-size: 3rem; margin-bottom: 10px;">Panou de administrare</h1>
+                <p style="color: #86868b; margin-bottom: 100px;"> </p>
+
+
+                <div style="display: flex; justify-content: center; gap: 30px; flex-wrap: wrap;">
+
+                    <a href="/filme" style="text-decoration: none;">
+                        <div style="background: rgba(41, 151, 255, 0.1); border: 1px solid rgba(41, 151, 255, 0.3); padding: 40px; border-radius: 24px; width: 250px; transition: transform 0.2s;">
+                            <div style="font-size: 3rem; margin-bottom: 15px;">🎬</div>
+                            <h2 style="color: #2997ff; margin-bottom: 10px;">Filme</h2>
+                        </div>
+                    </a>
+
+                    <a href="/categorii" style="text-decoration: none;">
+                        <div style="background: rgba(191, 90, 242, 0.1); border: 1px solid rgba(191, 90, 242, 0.3); padding: 40px; border-radius: 24px; width: 250px; transition: transform 0.2s;">
+                            <div style="font-size: 3rem; margin-bottom: 15px;">🗂️</div>
+                            <h2 style="color: #bf5af2; margin-bottom: 10px;">Categorii</h2>
+                        </div>
+                    </a>
+
+                    <a href="/incadrari" style="text-decoration: none;">
+                        <div style="background: rgba(48, 209, 88, 0.1); border: 1px solid rgba(48, 209, 88, 0.3); padding: 40px; border-radius: 24px; width: 250px; transition: transform 0.2s;">
+                            <div style="font-size: 3rem; margin-bottom: 15px;">🔗</div>
+                            <h2 style="color: #30d158; margin-bottom: 10px;">Încadrări</h2>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+        {% endblock %}
+        </div>
+</body>
+</html>

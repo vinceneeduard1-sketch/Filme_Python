@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<style>:root { --accent: #bf5af2; }</style>
+<div class="page-header">
+    <h1>Categorii</h1>
+    <div>
+        <a href="/" class="btn btn-home">🏠 Home</a>
+        <a href="/categorii/adauga" class="btn btn-add" style="color:var(--accent); border-color:var(--accent); background:rgba(191,90,242,0.15)">+ Adaugă Categorie</a>
+    </div>
+</div>
+
+<div class="table-wrapper">
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nume Categorie</th>
+                <th>Acțiuni</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for c in categorii %}
+            <tr>
+                <td style="color: #86868b;">#{{ c.id_categorie }}</td>
+                <td style="font-weight: 600;">{{ c.nume_categorie }}</td>
+                <td class="action-links">
+                    <a href="/categorii/modifica/{{ c.id_categorie }}" class="edit-link" style="color:var(--accent)">Edit</a>
+                    <a href="/categorii/sterge/{{ c.id_categorie }}" class="delete-link" onclick="return confirm('Sigur?')">Șterge</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

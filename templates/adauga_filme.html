@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="form-card">
+    <div style="text-align: center; margin-bottom: 20px;">
+        <h1>Adaugă Film Nou</h1>
+        <a href="/filme" style="color: #86868b; text-decoration: none;">&larr; Înapoi</a>
+    </div>
+
+    <form method="POST">
+        <label>Titlu Film</label>
+        <input type="text" name="titlu" placeholder="Ex: Titanic" required autocomplete="off">
+
+        <label>An Apariție</label>
+        <input type="number" name="an_aparitie" placeholder="Ex: 1997" required>
+
+        <label>Durata (minute)</label>
+        <input type="number" name="durata" placeholder="Ex: 195" required>
+
+        <label>Regizor</label>
+        <input type="text" name="regizor" placeholder="Ex: James Cameron" autocomplete="off">
+
+        <input type="submit" value="Adaugă Film" class="btn-submit">
+    </form>
+</div>
+{% endblock %}

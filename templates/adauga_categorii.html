@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<style>:root { --accent: #bf5af2; }</style>
+
+<div class="form-card">
+    <div style="text-align: center; margin-bottom: 20px;">
+        <h1>Adaugă Categorie</h1>
+        <a href="/categorii" style="color: #86868b; text-decoration: none;">&larr; Înapoi</a>
+    </div>
+
+    <form method="POST">
+        <label>Nume Categorie</label>
+        <input type="text" name="nume_categorie" placeholder="Ex: Științifico-Fantastic" required autocomplete="off">
+
+        <input type="submit" value="Adaugă Categoria" class="btn-submit">
+    </form>
+</div>
+{% endblock %}

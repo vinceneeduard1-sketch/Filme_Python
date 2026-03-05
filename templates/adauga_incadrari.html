@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<style>:root { --accent: #30d158; }</style>
+
+<div class="form-card">
+    <div style="text-align: center; margin-bottom: 20px;">
+        <h1>Adaugă Încadrare</h1>
+        <div style="color: #86868b; font-size: 0.9rem;">Asociază un film cu o categorie</div>
+        <a href="/incadrari" style="color: #86868b; text-decoration: none; display:block; margin-top:10px;">&larr; Înapoi</a>
+    </div>
+
+    <form method="POST">
+        <label>Alege Filmul</label>
+        <select name="id_film" required>
+            <option value="" disabled selected>-- Selectează un film --</option>
+            {% for f in filme %}
+                <option value="{{ f.id_film }}">{{ f.titlu }} ({{ f.an_aparitie }})</option>
+            {% endfor %}
+        </select>
+
+        <label>Alege Categoria</label>
+        <select name="id_categorie" required>
+            <option value="" disabled selected>-- Selectează o categorie --</option>
+            {% for c in categorii %}
+                <option value="{{ c.id_categorie }}">{{ c.nume_categorie }}</option>
+            {% endfor %}
+        </select>
+
+        <label>Tip Rol</label>
+        <select name="tip">
+            <option value="Principala">Principala</option>
+            <option value="Secundara">Secundara</option>
+        </select>
+
+        <input type="submit" value="Creează Legătura" class="btn-submit">
+    </form>
+</div>
+{% endblock %}

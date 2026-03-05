@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="form-card">
+    <div style="text-align: center; margin-bottom: 20px;">
+        <h1>Editează Film</h1>
+        <a href="/filme" style="color: #86868b; text-decoration: none;">&larr; Înapoi</a>
+    </div>
+
+    <form method="POST">
+        <label>ID Film</label>
+        <input type="text" value="{{ film.id_film }}" readonly>
+
+        <label>Titlu</label>
+        <input type="text" name="titlu" value="{{ film.titlu }}" required>
+
+        <label>An Apariție</label>
+        <input type="number" name="an_aparitie" value="{{ film.an_aparitie }}" required>
+
+        <label>Durata (min)</label>
+        <input type="number" name="durata" value="{{ film.durata }}" required>
+
+        <label>Regizor</label>
+        <input type="text" name="regizor" value="{{ film.regizor }}">
+
+        <input type="submit" value="Salvează Modificările" class="btn-submit">
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<style>:root { --accent: #30d158; }</style>
+
+<div class="form-card">
+    <div style="text-align: center; margin-bottom: 20px;">
+        <h1>Editează Încadrare</h1>
+        <a href="/incadrari" style="color: #86868b; text-decoration: none;">&larr; Înapoi</a>
+    </div>
+
+    <form method="POST">
+        <label>ID Încadrare</label>
+        <input type="text" value="{{ inc.id_incadrare }}" readonly>
+
+        <label>Film</label>
+        <select name="id_film">
+            {% for f in filme %}
+                <option value="{{ f.id_film }}" {% if f.id_film == inc.id_film %}selected{% endif %}>
+                    {{ f.titlu }} ({{ f.an_aparitie }})
+                </option>
+            {% endfor %}
+        </select>
+
+        <label>Categorie</label>
+        <select name="id_categorie">
+            {% for c in categorii %}
+                <option value="{{ c.id_categorie }}" {% if c.id_categorie == inc.id_categorie %}selected{% endif %}>
+                    {{ c.nume_categorie }}
+                </option>
+            {% endfor %}
+        </select>
+
+        <label>Tip Rol</label>
+        <select name="tip">
+            <option value="Principala" {% if inc.tip == 'Principala' %}selected{% endif %}>Principala</option>
+            <option value="Secundara" {% if inc.tip == 'Secundara' %}selected{% endif %}>Secundara</option>
+        </select>
+
+        <input type="submit" value="Salvează Încadrarea" class="btn-submit">
+    </form>
+</div>
+{% endblock %}

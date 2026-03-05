@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="page-header">
+    <h1>Catalog Filme</h1>
+    <div>
+        <a href="/" class="btn btn-home">🏠 Home</a>
+        <a href="/filme/adauga" class="btn btn-add">+ Adaugă Film</a>
+    </div>
+</div>
+
+<div class="table-wrapper">
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Titlu</th>
+                <th>An</th>
+                <th>Durata</th>
+                <th>Regizor</th>
+                <th>Acțiuni</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for f in filme %}
+            <tr>
+                <td style="color: #86868b;">#{{ f.id_film }}</td>
+                <td style="font-weight: 600;">{{ f.titlu }}</td>
+                <td>{{ f.an_aparitie }}</td>
+                <td>{{ f.durata }} min</td>
+                <td>{{ f.regizor }}</td>
+                <td class="action-links">
+                    <a href="/filme/modifica/{{ f.id_film }}" class="edit-link">Edit</a>
+                    <a href="/filme/sterge/{{ f.id_film }}" class="delete-link" onclick="return confirm('Sigur?')">Șterge</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
